@@ -2,8 +2,8 @@ package com.example;
 
 public class LionAlex extends Lion {
 
-    public LionAlex(String sex, Feline feline) throws Exception {
-        super(sex , feline);
+    public LionAlex(Feline feline) throws Exception {
+        super("Самец" , feline);
     }
 
     public String getFriends() {

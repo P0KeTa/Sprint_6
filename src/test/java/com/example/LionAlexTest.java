@@ -3,7 +3,6 @@ package com.example;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.junit.Assert.*;
@@ -11,14 +10,12 @@ import static org.junit.Assert.*;
 @RunWith(MockitoJUnitRunner.class)
 public class LionAlexTest {
 
-    @Mock
-    Feline feline;
-
     private LionAlex lionAlex;
 
     @Before
     public void createClass() throws Exception {
-        lionAlex = new LionAlex("Самец", feline);
+        Feline feline = new Feline();
+        lionAlex = new LionAlex(feline);
     }
 
     @Test

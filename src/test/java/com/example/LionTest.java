@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
-import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
@@ -14,13 +13,11 @@ import static org.junit.Assert.*;
 @RunWith(MockitoJUnitRunner.class)
 public class LionTest {
 
-    @Spy
-    Feline feline;
-
     private Lion lion;
 
     @Before
     public void createClass() throws Exception {
+        Feline feline = new Feline();
         lion = new Lion("Самка", feline);
     }
 
