@@ -2,25 +2,21 @@
 
 public class LionAlex extends Lion {
 
-    public LionAlex(Feline feline){
-<span class="fc" id="L6">        super(feline);</span>
+    public LionAlex(String sex, Feline feline) throws Exception {
+<span class="fc" id="L6">        super(sex , feline);</span>
 <span class="fc" id="L7">    }</span>
 
-    public LionAlex(String sex) throws Exception {
-<span class="fc" id="L10">        super(sex);</span>
-<span class="fc" id="L11">    }</span>
-
     public String getFriends() {
-<span class="fc" id="L14">        return &quot;Марти, Глория, Мелман&quot;;</span>
+<span class="fc" id="L10">        return &quot;Марти, Глория, Мелман&quot;;</span>
     }
 
     public String getPlaceOfLiving() {
-<span class="fc" id="L18">        return &quot;Нью-Йоркский зоопарк&quot;;</span>
+<span class="fc" id="L14">        return &quot;Нью-Йоркский зоопарк&quot;;</span>
     }
 
     @Override
     public int getKittens() {
-<span class="fc" id="L23">        return 0;</span>
+<span class="fc" id="L19">        return 0;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

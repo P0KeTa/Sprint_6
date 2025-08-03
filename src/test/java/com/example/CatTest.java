@@ -13,22 +13,27 @@ import static org.junit.Assert.assertEquals;
 @RunWith(MockitoJUnitRunner.class)
 public class CatTest {
 
+    private Cat cat;
+
+    @Before
+    public void createClass() {
+        cat = new Cat(felineCat);
+    }
+
     @Mock
     Feline felineCat;
 
     @Test
-    public void checkSoundCat() {
-        Cat cat = new Cat(felineCat);
-        assertEquals("Мяу", cat.getSound());
+    public void checkSoundCatTest() {
+        assertEquals("Кот не произносит звук 'Мяу'", "Мяу", cat.getSound());
 
     }
 
     @Test
-    public void checkFoodCat() throws Exception {
-        Cat cat = new Cat(felineCat);
+    public void checkFoodCatTest() throws Exception {
         List<String> expected = List.of("Животные", "Птицы", "Рыба");
         Mockito.when(cat.getFood()).thenReturn(expected);
-        assertEquals(expected, cat.getFood());
+        assertEquals("Список еды не соответствует выбранному животному",expected, cat.getFood());
     }
 
 

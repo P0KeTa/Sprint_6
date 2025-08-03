@@ -1,8 +1,8 @@
 package com.example;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
@@ -12,23 +12,31 @@ import static org.junit.Assert.assertEquals;
 @RunWith(MockitoJUnitRunner.class)
 public class FelineTest {
 
-    @Spy
-    Feline feline;
+    private Feline feline;
+
+    @Before
+    public void createClass() {
+        feline = new Feline();
+    }
 
     @Test
-    public void checkEatMeatFeline() throws Exception {
+    public void checkEatMeatFelineTest() throws Exception {
         List<String> expected = List.of("Животные", "Птицы", "Рыба");
-        assertEquals(expected, feline.eatMeat());
+        assertEquals("Список еды не соответствует выбранному животному", expected, feline.eatMeat());
     }
 
     @Test
-    public void checkFamilyFeline() {
-        assertEquals("Кошачьи", feline.getFamily());
+    public void checkFamilyFelineTest() {
+        assertEquals("Семейство не Кошачьи","Кошачьи", feline.getFamily());
     }
 
     @Test
-    public void checkKittensFeline() {
-        assertEquals(1, feline.getKittens());
-        assertEquals(3, feline.getKittens(3));
+    public void checkKittensFelineTest() {
+        assertEquals("Кол-во детёнышей не 1",1, feline.getKittens());
+    }
+
+    @Test
+    public void checkKittensFeline2Test() {
+        assertEquals("Кол-во детёнышей не соответствует переданному значению",3, feline.getKittens(3));
     }
 }

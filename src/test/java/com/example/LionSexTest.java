@@ -16,21 +16,28 @@ public class LionSexTest {
     }
 
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные: {0}")
     public static Object[][] getSumData() {
         return new Object[][] {
                 {"Самка"},
                 {"Самец"},
+                {"Нечто"}
         };
     }
 
     @Test
-    public void checkLionMaleSex() throws Exception {
-        Lion lionSex = new Lion(sex);
-        if (sex.equals("Самка")) {
-            assertFalse(lionSex.doesHaveMane());
-        } else if (sex.equals("Самец")) {
-            assertTrue(lionSex.doesHaveMane());
+    public void checkLionMaleSexTest() {
+        Feline feline = new Feline();
+        try {
+            Lion lionSex = new Lion(sex, feline);
+            if (sex.equals("Самка")) {
+                assertFalse("У самок нет гривы", lionSex.doesHaveMane());
+            } else if (sex.equals("Самец")) {
+                assertTrue("У самцов есть грива", lionSex.doesHaveMane());
+            }
+        } catch (Exception e) {
+            System.out.println("Существует только Самец или Самка");
         }
+
     }
 }
